@@ -1,0 +1,9 @@
+name: "SimplePets"
+main: brokiem\simplepets\SimplePets
+version: 0.0.1
+api: [ 3.14.0 ]
+author: "brokiem"
+
+commands:
+  summon:
+    description: "summon pet"

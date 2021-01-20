@@ -4,6 +4,8 @@ version: 0.0.1
 api: [ 3.14.0 ]
 author: "brokiem"
 
+website: "https://github.com/brokiem/SimplePets/"
+
 commands:
   summon:
     description: "summon pet"

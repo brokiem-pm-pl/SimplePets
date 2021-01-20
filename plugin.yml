@@ -7,3 +7,4 @@ author: "brokiem"
 commands:
   summon:
     description: "summon pet"
+    usage: /summon <pet> <pet name> <baby|normal> <scale>

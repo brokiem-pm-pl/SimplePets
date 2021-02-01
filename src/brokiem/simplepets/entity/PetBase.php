@@ -14,6 +14,9 @@ use pocketmine\nbt\tag\CompoundTag;
 class PetBase extends Animal implements Rideable
 {
 
+    /** @var string $identifier */
+    public $identifier = "";
+
     /** @var string $entityName */
     public $entityName = "";
 
@@ -26,11 +29,12 @@ class PetBase extends Animal implements Rideable
     /** @var float $scale */
     public $scale = 1.0;
 
-    public function __construct(Level $level, CompoundTag $nbt, ?Entity $petOwner, string $petName, float $scale)
+    public function __construct(Level $level, CompoundTag $nbt, ?Entity $petOwner, string $petName, float $scale, string $identifier)
     {
         $this->petOwner = $petOwner;
         $this->petName = $petName;
         $this->scale = $scale;
+        $this->identifier = $identifier;
         parent::__construct($level, $nbt);
     }
 
@@ -38,8 +42,10 @@ class PetBase extends Animal implements Rideable
     {
         parent::initEntity();
 
-        $this->setGenericFlag(self::DATA_FLAG_BABY, (bool)$this->namedtag->getByte("Baby", 0));
+        $this->setGenericFlag(self::DATA_FLAG_BABY, (bool)$this->namedtag->getByte("baby", 0));
         $this->setGenericFlag(self::DATA_FLAG_TAMED, true);
+
+        $this->namedtag->setString("Identifier", $this->identifier);
 
         $this->setOwningEntity($this->petOwner);
         $this->setNameTag($this->petName);

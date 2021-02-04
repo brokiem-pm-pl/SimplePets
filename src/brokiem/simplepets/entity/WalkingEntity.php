@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace brokiem\simplepets\entity;
 
 
-use brokiem\simplepets\SimplePets;
-
 class WalkingEntity extends PetBase
 {
 
@@ -22,7 +20,7 @@ class WalkingEntity extends PetBase
     public function onUpdate(int $currentTick): bool
     {
         if ($this->petOwner === null or !$this->isAlive()) {
-            SimplePets::getPlugin()->removePet($this);
+            //SimplePets::getPlugin()->removePet($this);
             return false;
         }
 
@@ -33,7 +31,14 @@ class WalkingEntity extends PetBase
 
         if ($this->petOwner->distance($this) <= 3) {
             if ($this->randomLookDelay <= 0) {
-                $this->followOwner(mt_rand(0, 4), 0, mt_rand(0, 4));
+                $rand = mt_rand(0, 1);
+
+                if ($rand === 0 and $this->petOwner !== null) {
+                    $this->lookAt($this->petOwner);
+                } else {
+                    $this->followOwner(mt_rand(0, 4), 0, mt_rand(0, 4));
+                }
+
                 $this->randomLookDelay = 50;
             }
         } else {

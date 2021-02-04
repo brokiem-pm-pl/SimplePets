@@ -21,7 +21,7 @@ class EventListener implements Listener
 
     public function onJoin(PlayerJoinEvent $event)
     {
-        $player = $event->getPlayer();
+        /*$player = $event->getPlayer();
         $petData = $this->plugin->getPetData($player->getName());
 
         $petName = $petData->get("PetName");
@@ -30,27 +30,21 @@ class EventListener implements Listener
         $petScale = $petData->get("PetScale");
         $petIdentifier = $petData->get("Identifier");
 
-        var_dump($petType);
-        var_dump($petName);
-
         if (!$this->plugin->summonPet($player, $petType, $petName, $petAge, $petScale, $petIdentifier, true)) {
             $this->plugin->getLogger()->error("An error occurred while spawning pet with name $petName, Owned by " . $player->getName());
-        }
+        }*/
     }
 
     public function onQuit(PlayerQuitEvent $event)
     {
-        $player = $event->getPlayer();
+        /*$player = $event->getPlayer();
         $petData = $this->plugin->getPetData($player->getName());
 
         $petName = $petData->get("PetName");
         $petType = $petData->get("PetType");
 
-        var_dump($petName);
-        var_dump($petType);
-
         if (!$petName and !$petType) {
             $this->plugin->removePet($player, true);
-        }
+        }*/
     }
 }

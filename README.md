@@ -1,2 +1,2 @@
 # SimplePets
-PLUGIN ARCHIVED! 
+PLUGIN ARCHIVED!  
